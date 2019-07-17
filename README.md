@@ -10,6 +10,7 @@ All algorithms implemented in Python
 2. cd foldername
 3. python filename.py
 ```
-<br/>
+
+
 ## Reference
 http://www.crackingthecodinginterview.com/
