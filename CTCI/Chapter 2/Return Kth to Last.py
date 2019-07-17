@@ -57,6 +57,7 @@ class LinkedList:
 
 	def size(self):
 		return self.num_of_data
+		
 def Return_Kth_to_Last(link):
 	l_link = LinkedList()
 	count = 0

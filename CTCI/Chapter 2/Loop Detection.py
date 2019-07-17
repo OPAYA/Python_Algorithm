@@ -58,24 +58,24 @@ class LinkedList:
 	def size(self):
 		return self.num_of_data
 
-l_list = LinkedList()
-link = 'abcdef'
-for i in link:
-	l_list.append(i)
 
-index = l_list.size()//2
-value = l_list.first()
-for i in range(index):
-	if i == index-1:
+def Loop(list1, ascii_list):
+	l_list = LinkedList()
+	for val in list1:
+		l_list.append(val)
 
-		l_list.delete()
-	l_list.next()
-	
-print(l_list.first())
-print(l_list.next())
-print(l_list.next())
-print(l_list.next())
-print(l_list.next())
+	val = l_list.first()
+	for _ in range(len(list1)):
+		char = ord(val)
+		ascii_list[char] += 1
 
+		if ascii_list[char] > 1:
+			return val
 
+		val = l_list.next()
 
+if __name__ == '__main__':
+	list1 = ['A','B','C','D','E','A']
+
+	ascii_list = [0 for _ in range(128)]
+	print(Loop(list1, ascii_list))
