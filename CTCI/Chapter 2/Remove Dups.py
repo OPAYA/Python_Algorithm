@@ -59,8 +59,15 @@ class LinkedList:
 		return self.num_of_data
 
 
-def Remove(list1, ascii_list, l_list):
-	
+def Remove(list1):
+	"""Remove Duplicated node
+	>>> Remove(['A','B','C','D','E','A'])
+	'ABCDE'
+	"""
+	l_list = LinkedList()
+	ascii_list = [0 for _ in range(128)]
+	returns = []
+
 	for val in list1:
 		l_list.append(val)
 
@@ -74,15 +81,16 @@ def Remove(list1, ascii_list, l_list):
 
 		val = l_list.next()
 
-if __name__ == '__main__':
-	list1 = ['A','B','C','D','E','A']
+	returns.append(l_list.first())
+	for _ in range(l_list.size()-1):
+		returns.append(l_list.next())
 
-	ascii_list = [0 for _ in range(128)]
-	l_list = LinkedList()
-	Remove(list1, ascii_list, l_list)
-	print(l_list.first())
-	print(l_list.next())
-	print(l_list.next())
-	print(l_list.next())
-	print(l_list.next())
-	print(l_list.next())
+	return "".join(returns)
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()
+	list1 = ['A','B','C','D','E','A']
+	print(Remove(list1))
+	
+	
+	

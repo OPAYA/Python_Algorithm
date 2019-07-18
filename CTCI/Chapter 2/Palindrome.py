@@ -57,9 +57,13 @@ class LinkedList:
 
 	def size(self):
 		return self.num_of_data
-if __name__ == '__main__':
+def Palindrome(input):
+	"""Rreturn palindrome check
+	Palindrome([1, 2, 3, 4, 1])
+	False
+	"""
 	l_list = LinkedList()
-	input = [1, 2, 3, 4, 1]
+
 	for i in input:
 		l_list.append(i)
 
@@ -85,4 +89,12 @@ if __name__ == '__main__':
 		else:
 			check = False
 
-	print(check)
+	return check
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()
+
+
+
+	

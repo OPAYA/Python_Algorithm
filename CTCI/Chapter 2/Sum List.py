@@ -58,42 +58,47 @@ class LinkedList:
 	def size(self):
 		return self.num_of_data
 
-input_1 = [7,1,6]
-input_2 = [5, 9, 2]
 
-l_list_1 = LinkedList()
-l_list_2 = LinkedList()
-l_list_result = LinkedList()
+def Sum_list(input_1, input_2):
+	"""Return Sum_list
+	Sum_list([7, 1, 6], [5, 9, 2])
+	912
+	"""
+	l_list_1 = LinkedList()
+	l_list_2 = LinkedList()
+	l_list_result = LinkedList()
 
-for i in input_1:
-	l_list_1.append(i)
+	for i in input_1:
+		l_list_1.append(i)
 
-for j in input_2:
-	l_list_2.append(j)
+	for j in input_2:
+		l_list_2.append(j)
 
-while True:
-	for i in range(l_list_1.size()):
-		if i == 0:
-			value1, value2 = l_list_1.first(), l_list_2.first()
-			value = value1+value2
-			fir_val = value // 10
-			value = value % 10
-			
-			
-		else:
-			value1, value2 = l_list_1.next(), l_list_2.next()
-			value = value1 + value2
-			value = value + fir_val
-			#print(i,':', value1, '+' ,value2 ,'+',fir_val ,'=', value)
-			fir_val = value // 10
-			value = value % 10 
-			
-		l_list_result.append(value)
-	break
+	while True:
+		for i in range(l_list_1.size()):
+			if i == 0:
+				value1, value2 = l_list_1.first(), l_list_2.first()
+				value = value1+value2
+				fir_val = value // 10
+				value = value % 10
+				
+				
+			else:
+				value1, value2 = l_list_1.next(), l_list_2.next()
+				value = value1 + value2
+				value = value + fir_val
+				
+				fir_val = value // 10
+				value = value % 10 
+				
+			l_list_result.append(value)
+		break
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()
+	input_1 = [7,1,6]
+	input_2 = [5, 9, 2]
 
-print(l_list_result.first())
-print(l_list_result.next())
-print(l_list_result.next())
 
 
 

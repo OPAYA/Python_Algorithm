@@ -59,17 +59,23 @@ class LinkedList:
 		return self.num_of_data
 		
 def Return_Kth_to_Last(link):
-	l_link = LinkedList()
+	"""Return Kth node element
+	>>> Return_Kth_to_Last('12345')
+	5
+
+	"""
+	l_list = LinkedList()
 	count = 0
 
 	for i in link:
-		l_link.append(i)
-
-	first = l_link.first()
-	count += 1
-	while True:
-		if l_link.next() == None:
-			return count
-		count +=1
-
-print(Return_Kth_to_Last('12345'))
+		l_list.append(i)
+	returns = l_list.first()
+	for _ in range(l_list.size()-1):
+		returns = l_list.next()
+	returns = int(returns)
+	return returns
+	
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()
+	Return_Kth_to_Last('12345')

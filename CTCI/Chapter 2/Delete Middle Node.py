@@ -57,25 +57,38 @@ class LinkedList:
 
 	def size(self):
 		return self.num_of_data
-
-l_list = LinkedList()
-link = 'abcdef'
-for i in link:
-	l_list.append(i)
-
-index = l_list.size()//2
-value = l_list.first()
-for i in range(index):
-	if i == index-1:
-
-		l_list.delete()
-	l_list.next()
+def Delete(link):
+	"""Return the deleted middle node
+	>>> Delete('abcdef')
+	'abdef'
+	"""
+	l_list = LinkedList()
 	
-print(l_list.first())
-print(l_list.next())
-print(l_list.next())
-print(l_list.next())
-print(l_list.next())
+	for i in link:
+		l_list.append(i)
 
+	returns = []
+	index = l_list.size()//2
+	value = l_list.first()
+	for i in range(index):
+		if i == index-1:
+
+			l_list.delete()
+		l_list.next()
+	returns.append(l_list.first())
+
+	for i in range(l_list.size()-1):
+		returns.append(l_list.next())
+
+	return "".join(returns)
+	
+
+if __name__=='__main__':
+	import doctest
+	doctest.testmod()
+	
+	
+	link = 'abcdef'
+	print(Delete(link))
 
 

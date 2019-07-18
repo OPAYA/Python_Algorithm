@@ -59,8 +59,14 @@ class LinkedList:
 		return self.num_of_data
 
 
-def Loop(list1, ascii_list):
+def Loop(list1):
+	"""Return loop node
+	>>> Loop(['A', 'B','C', 'D', 'E', 'A'])
+	'A'
+	"""
 	l_list = LinkedList()
+	ascii_list = [0 for _ in range(128)]
+
 	for val in list1:
 		l_list.append(val)
 
@@ -73,9 +79,11 @@ def Loop(list1, ascii_list):
 			return val
 
 		val = l_list.next()
-
+	return val
 if __name__ == '__main__':
+	import doctest
+	doctest.testmod()
 	list1 = ['A','B','C','D','E','A']
 
-	ascii_list = [0 for _ in range(128)]
-	print(Loop(list1, ascii_list))
+	
+	print(Loop(list1))

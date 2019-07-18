@@ -59,6 +59,11 @@ class LinkedList:
 		return self.num_of_data
 
 def Intersection(list1, list2):
+	"""Return the intersection node
+	
+	>>> Intersection([1,2,4,6,7], [6, 7, 3, 9, 0])
+	False
+	"""
 	l_list1 = LinkedList()
 	l_list2 = LinkedList()
 	
@@ -82,6 +87,8 @@ def Intersection(list1, list2):
 	return check
 
 if __name__ == '__main__':
+	import doctest
+	doctest.testmod()
 	list1 = [1,2,4,6,7]
 	list2 = [6,7,3,9,0]
 	
