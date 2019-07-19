@@ -1,15 +1,31 @@
 class Solution(object):
-    def findMaxLength(self, nums):
-        """
-        >>> Solution().findMaxLength([0, 1, 0, 1])
-        2
-        >>> Solution().findMaxLength([0, 1, 0])
-        2
-        
-        """
-        result = len(set(nums))
+    def longestMountain(self, A):
 
-        return result
+    	"""Return longest mountain in number list
+    	>>> Solution().longestMountain([2, 1, 4, 7, 3, 2, 5, 6, 7])
+    	5
+        """
+		N = len(A)
+        ans = base = 0
+
+        while base < N:
+            end = base
+            if end + 1 < N and A[end] < A[end + 1]: 
+              
+                while end+1 < N and A[end] < A[end+1]:
+
+                    end += 1
+                    
+                if end + 1 < N and A[end] > A[end + 1]: 
+                  
+                    while end+1 < N and A[end] > A[end+1]:
+                        end += 1
+                        
+                    ans = max(ans, end - base + 1)
+
+            base = max(end, base + 1)
+         
+        return ans
 
 if __name__ == '__main__':
 	import doctest
