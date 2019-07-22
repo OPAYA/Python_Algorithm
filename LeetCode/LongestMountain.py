@@ -5,8 +5,8 @@ class Solution(object):
     	>>> Solution().longestMountain([2, 1, 4, 7, 3, 2, 5, 6, 7])
     	5
         """
-		N = len(A)
-        ans = base = 0
+	N = len(A)
+        result = base = 0
 
         while base < N:
             end = base
@@ -21,11 +21,11 @@ class Solution(object):
                     while end+1 < N and A[end] > A[end+1]:
                         end += 1
                         
-                    ans = max(ans, end - base + 1)
+                    result = max(result, end - base + 1)
 
             base = max(end, base + 1)
          
-        return ans
+        return result
 
 if __name__ == '__main__':
 	import doctest
