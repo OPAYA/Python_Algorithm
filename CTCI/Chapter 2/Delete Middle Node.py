@@ -59,6 +59,7 @@ class LinkedList:
 		return self.num_of_data
 def Delete(link):
 	"""Return the deleted middle node
+	
 	>>> Delete('abcdef')
 	'abdef'
 	"""
