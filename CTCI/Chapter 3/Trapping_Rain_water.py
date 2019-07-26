@@ -3,7 +3,7 @@ class Solution(object):
 
 		if not height or len(height) < 3:
 			return 0
-			
+
 		size = len(heights)
 		left = [0] * size
 		right = [0] * size
@@ -15,9 +15,7 @@ class Solution(object):
 		h = heights[size-1]
 		for i in reversed(range(size)):
 			right[i] = h = max(h, heights[i])
-		print(left)
-		print(right)
-		print(heights)
+		
 		water = 0
 		for i in range(size):
 			water += min(left[i], right[i]) - heights[i]
