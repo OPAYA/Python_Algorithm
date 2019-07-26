@@ -1,17 +1,13 @@
-class Node(object):
-    def __init__(self, x):
-        self.data = x
-        self.next = None
+
         
 class MyQueue(object):
 
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.forward = []
+        self.bacward = []
         """
         Initialize your data structure here.
         """
-        
 
     def push(self, x):
         """
@@ -19,40 +15,33 @@ class MyQueue(object):
         :type x: int
         :rtype: None
         """
-        new_data = Node(x)
-        if self.head is None:
-            self.head = new_data
-            self.tail = self.head
-        else:
-            self.tail.next = new_data
-            self.tail = new_data
-        
+        self.forward.append(x)
+        self.peek()
 
     def pop(self):
         """
         Removes the element from in front of queue and returns that element.
         :rtype: int
         """
-        data = self.head.data
-        self.head = self.head.next
-        if self.head is None:
-            self.tail is None
-        return data
-        
+        return self.backward.pop()
+               
 
     def peek(self):
         """
         Get the front element.
         :rtype: int
         """
-        return self.head.data
+        if not self.forward:
+            while self.backward:
+                self.backward.append(self.forward.pop())
+        
 
     def empty(self):
         """
         Returns whether the queue is empty.
         :rtype: bool
         """
-        return self.head == None
+        return self.backward
         
 
 
