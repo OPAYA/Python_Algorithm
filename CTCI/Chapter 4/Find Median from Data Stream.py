@@ -7,7 +7,11 @@ class MedianFinder:
 
     def addNum(self, num):
         small, large = self.heaps
-        heapq.heappush(small, -heapq.heappushpop(large, num))
+        num1 = -heapq.heappushpop(large, num)
+        heapq.heappush(small, num1)
+        print('-------------')
+        print('num1', num1)
+        print('num:',num)
         print('add small', small)
         print('add large', large)
         if len(large) < len(small):
@@ -26,12 +30,12 @@ class MedianFinder:
 
 
 medianfinder = MedianFinder()
-medianfinder.addNum(0)
 medianfinder.addNum(1)
-medianfinder.addNum(0)
-medianfinder.addNum(2)
+medianfinder.addNum(3)
+medianfinder.addNum(5)
+medianfinder.addNum(7)
 print(medianfinder.findMedian())
 medianfinder.addNum(0)
 medianfinder.addNum(3)
-#medianfinder.addNum(10)
+medianfinder.addNum(10)
 print(medianfinder.findMedian())

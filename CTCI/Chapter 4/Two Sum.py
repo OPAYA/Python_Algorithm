@@ -10,10 +10,9 @@ class Solution(object):
         	
 
             if val in residual:
-            	
                 return [residual[val], i]
             residual[target - val] = i
-            
+           
         return []
 
 solution = Solution()
